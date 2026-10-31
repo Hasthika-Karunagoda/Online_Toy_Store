@@ -32,7 +32,7 @@ public class AdminController {
     @GetMapping("/login")
     public String loginForm(Model model) {
         model.addAttribute("loginDTO", new LoginDTO());
-        return "admin/login";
+        return "admin/admin-login";
     }
 
     @PostMapping("/login")
@@ -46,13 +46,13 @@ public class AdminController {
             return "redirect:/users/admin-list";
         }
         model.addAttribute("error", "Invalid administrator credentials.");
-        return "admin/login";
+        return "admin/admin-login";
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/admin/login";
+        return "redirect:/admin/admin-login";
     }
 
 
