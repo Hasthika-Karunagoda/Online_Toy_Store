@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockyToys | Home</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffdf7;
+            color: #303030;
+        }
+        header {
+            background: #00277c;
+            padding: 20px 7%;
+            border-bottom: 1px solid #eadfba;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            background: #058ef1;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #fb0202;
+        }
+
+        .hero {
+            max-width: 1150px;
+            margin: 35px auto;
+            padding: 65px 35px;
+            background: linear-gradient(120deg, #0a389c, #7d9ff3);
+            border: 1px solid #058ef1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h2 {
+            font-size: 43px;
+            line-height: 1.2;
+            margin: 0 0 18px;
+            color: #ffffff;
+        }
+
+        .hero h2 span {
+            color: #c28d08;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #ffffff;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #7d9ff3;
+            color: #302b1b;
+            padding: 13px 23px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #f37f7f;
+        }
+
+        .hero-image {
+            font-size: 145px;
+            text-align: center;
+            min-width: 220px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 29px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: white;
+            border: 1px solid #7d9ff3;
+            border-radius: 9px;
+            padding: 25px 18px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: #0a389c;
+        }
+
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .category-card h3 {
+            margin: 8px 0;
+        }
+
+        .category-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .features {
+            background: #058ef1;
+            padding: 35px 25px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .shop-banner {
+            background: white;
+            border: 1px solid #7d9ff3;
+            border-radius: 10px;
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .shop-banner h2 {
+            margin-top: 0;
+        }
+
+        .shop-banner p {
+            color: #666;
+            margin-bottom: 22px;
+        }
+
+        footer {
+            background: #0a389c;
+            border-top: 1px solid #eadfba;
+            padding: 23px;
+            text-align: center;
+            margin-top: 55px;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+
+        <h1 class="logo">RockyToys 🧸</h1>
+
+        <nav>
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/toys}">Shop Toys</a>
+            <a th:href="@{/cart}">My Cart</a>
+
+            <a th:href="@{/users/profile}"
+               th:if="${session.loggedInUser != null}">
+                My Profile
+            </a>
+
+            <a th:href="@{/users/login}"
+               th:if="${session.loggedInUser == null}">
+                Login
+            </a>
+
+            <a th:href="@{/users/register}"
+               th:if="${session.loggedInUser == null}">
+                Register
+            </a>
+
+            <a th:href="@{/users/logout}"
+               th:if="${session.loggedInUser != null}">
+                Logout
+            </a>
+
+            <a th:href="@{/admin/carts}"
+               th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+                Manage Carts
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>
+            Discover a World of
+            <span>Fun & Imagination!</span>
+        </h2>
+
+        <p>
+            Welcome to RockyToys, your destination for exciting toys,
+            creative play and unforgettable childhood memories.
+            Explore our collection and find something special for everyone.
+        </p>
+
+        <a class="button" th:href="@{/toys}">
+            Explore Our Toys →
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+        🧸🎁🚂
+    </div>
+
+</section>
+
+
+<main class="container">
+
+    <section>
+        <div class="section-title">
+            <h2>Explore Our Collection</h2>
+            <p>Find the perfect toy for every little adventure.</p>
+        </div>
+
+        <div class="grid">
+
+            <div class="category-card">
+                <div class="category-icon">🧸</div>
+                <h3>Soft Toys</h3>
+                <p>Discover adorable companions for endless cuddles and fun.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🚗</div>
+                <h3>Vehicles & Cars</h3>
+                <p>Enjoy exciting adventures with our toy vehicles.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🧩</div>
+                <h3>Educational Toys</h3>
+                <p>Learn, discover and develop new skills through play.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🎨</div>
+                <h3>Creative Toys</h3>
+                <p>Bring imagination to life with creative activities.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="features">
+
+        <div class="section-title">
+            <h2>Why Choose RockyToys?</h2>
+            <p>Making every playtime special.</p>
+        </div>
+
+        <div class="grid">
+
+            <div class="feature">
+                <div class="category-icon">🌟</div>
+                <h3>Quality Toys</h3>
+                <p>Explore a collection selected for enjoyable play.</p>
+            </div>
+
+            <div class="feature">
+                <div class="category-icon">🎁</div>
+                <h3>Something for Everyone</h3>
+                <p>Discover toys for different interests and age groups.</p>
+            </div>
+
+            <div class="feature">
+                <div class="category-icon">❤️</div>
+                <h3>Fun & Happiness</h3>
+                <p>Make every moment of play more memorable.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="shop-banner">
+
+        <h2>Ready for Your Next Adventure?</h2>
+
+        <p>
+            Browse our toy collection and find your next favourite toy!
+        </p>
+
+        <a class="button" th:href="@{/toys}">
+            Start Shopping
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>© 2026 RockyToys. All Rights Reserved.</p>
+    <p>Bringing Smiles Through Play! 🧸</p>
+</footer>
+
+</body>
+</html>
