@@ -1,0 +1,9 @@
+T001|Teddy Bear|Super soft, fluffy brown teddy bear with a cute red ribbon collar.|CG001|850.00|1-3
+T002|Plush Bunny|Floppy-eared pink bunny made from organic cotton velvet.|CG001|1200.00|3-5
+T003|Race car|Sleek red friction-powered sports car with rubber wheels.|CG002|650.00|3-6
+T004|Fire Truck|Large scale emergency vehicle equipped with an extendable ladder.|CG002|1750.00|4-8
+T005|Building Blocks|Set of 50 multi-colored geometric wooden stacking blocks.|CG003|1450.00|2-5
+T006|Solar System Puzzle|A 60-piece thick cardboard floor puzzle teaching planetary positions.|CG003|990.00|5-8
+T007|Clay Modeling Kit|Non-toxic air-dry clay set with 12 vibrant colors and sculpting tools.|CG004|1100.00|6-10
+T008|Watercolor Art Set|Premium art kit including paint palette, brushes, and a sketchpad.|CG004|1950.00|7-12
+T009|RC Motor boat||CG002|1800.00|3-5

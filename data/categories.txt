@@ -1,0 +1,4 @@
+CG001|Soft Toys|
+CG002|Vehicles and Cars|
+CG003|Educational Toys|
+CG004|Creative Toys|
