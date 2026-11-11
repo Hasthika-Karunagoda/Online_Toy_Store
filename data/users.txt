@@ -1,1 +1,2 @@
 U0001|Hasthika Karunagoda|hasthikakarunagoda99@gmail.com|$2a$10$38y8MfEB5EVwjKKJJvCnOevVhqAIAeG4j4zm.uSB5z8cApUhXvFba||32.Dambarawa\nMenikhinna|CUSTOMER
+U0002|Imesh wickramasingha|imeshwickramasingha117@gmail.com|$2a$10$sr5Z78JPvoFm3PWDdUWkmOmYfQ/AAkZxbJKwjTj.dCnzHozCga6tC||45,hindagala,kandy|CUSTOMER
