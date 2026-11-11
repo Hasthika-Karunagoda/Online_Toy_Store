@@ -14,6 +14,7 @@ public class UserService {
  private final UserFileHandler files;
  private final BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
 
+
  public UserService(UserFileHandler f){files=f;}
  public User registerUser(RegisterDTO d){List<User> l=files.loadAll();
   if(l.stream().anyMatch(u->u.getEmail().equalsIgnoreCase(d.getEmail().trim())))throw new IllegalArgumentException("Email is already registered.");User u=new User(files.nextId(l),d.getFullName().trim(),d.getEmail().trim().toLowerCase(Locale.ROOT),encoder.encode(d.getPassword()),safe(d.getPhone()),safe(d.getAddress()),"CUSTOMER");l.add(u);files.saveAll(l);return u;
