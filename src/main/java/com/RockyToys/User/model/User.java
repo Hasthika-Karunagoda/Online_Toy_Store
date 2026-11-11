@@ -1,6 +1,6 @@
 package com.RockyToys.User.model;
 
-import com.RockyToys.Store.User.filehandling.FileFormat;
+import com.RockyToys.User.filehandling.FileFormat;
 
 public class User {
  private String userId,fullName,email,passwordHash,phone,address,role;

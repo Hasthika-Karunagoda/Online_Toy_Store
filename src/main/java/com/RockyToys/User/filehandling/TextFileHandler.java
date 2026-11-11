@@ -39,6 +39,7 @@ public class TextFileHandler {
    throw new IllegalStateException("Cannot save data file",e);
   }
  }
+
  public synchronized String nextId(String prefix,List<String> ids){
   int max=0;for(String id:ids)
    try{max=Math.max(max,Integer.parseInt(id.replaceAll("\\D","")));}
