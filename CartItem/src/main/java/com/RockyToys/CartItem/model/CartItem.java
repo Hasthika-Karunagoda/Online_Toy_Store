@@ -43,7 +43,7 @@ public class CartItem {
     public int getQuantity() { return quantity; }
     public void setQuantity(int quantity) {
         if (quantity < 1) throw new IllegalArgumentException("Quantity must be at least 1.");
-        this.quantity = quantity;
+        this.quantity = quantity; //Aggregation
         if (unitPrice != null) calculateTotalAmount();
     }
     public BigDecimal getTotalAmount() { return totalAmount; }
@@ -68,7 +68,7 @@ public class CartItem {
 
     private static java.util.List<String> splitEscaped(String line) {
         java.util.List<String> fields = new java.util.ArrayList<>();
-        StringBuilder field = new StringBuilder();
+        StringBuilder field = new StringBuilder();//composition
         boolean escaped = false;
         for (int i = 0; i < line.length(); i++) {
             char c = line.charAt(i);
