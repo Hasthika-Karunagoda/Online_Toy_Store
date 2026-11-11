@@ -1,10 +1,10 @@
 package com.RockyToys.User.controller;
 
-import com.RockyToys.User.dto.LoginDTO;
-import com.RockyToys.User.dto.RegisterDTO;
-import com.RockyToys.User.dto.UserUpdateDTO;
-import com.RockyToys.User.model.User;
-import com.RockyToys.User.service.UserService;
+import com.RockyToys.Store.User.dto.LoginDTO;
+import com.RockyToys.Store.User.dto.RegisterDTO;
+import com.RockyToys.Store.User.dto.UserUpdateDTO;
+import com.RockyToys.Store.User.model.User;
+import com.RockyToys.Store.User.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
