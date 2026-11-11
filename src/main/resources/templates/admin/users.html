@@ -178,7 +178,7 @@
         <nav>
             <a th:href="@{/}">Home</a>
             <a th:href="@{/toys}">Shop Toys</a>
-            <a th:href="@{/cart}">My Cart</a>
+
 
             <a th:href="@{/users/profile}"
                th:if="${session.loggedInUser != null}">
@@ -226,10 +226,16 @@
                 <td th:text="${u.fullName}"></td>
                 <td th:text="${u.email}"></td>
                 <td th:text="${u.role}"></td>
-                <td><form th:action="@{/users/delete}" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
-                    <input type="hidden" name="targetUserId" th:value="${u.userId}"/>
-                    <button type="submit" class="btn">Delete user</button>
-                </form></td>
+                <td>
+                    <form th:action="@{/users/delete}" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <input type="hidden" name="targetUserId" th:value="${u.userId}" />
+                        <button type="submit" class="btn">Delete user</button>
+                    </form>
+                </td>
+
+                </form>
+                </td>
+
             </tr>
             </tbody>
         </table>
