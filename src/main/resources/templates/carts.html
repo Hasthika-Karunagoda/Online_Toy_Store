@@ -281,21 +281,6 @@
 
         <div th:replace="~{fragments/cart-items :: cartItems}"></div>
     </div>
-    <div class="panel" style="max-width: 420px; margin-top: 25px;">
-        <h3>Apply Discount</h3>
-
-        <form th:action="@{/cart/discount}" th:object="${discountDTO}" method="post" style="display: flex; gap: 10px;">
-
-
-            <input type="number" th:field="*{discountPercentage}" min="0" max="100" placeholder="Enter discount % (e.g. 10)"
-                   style="flex: 1; padding: 10px; border: 1px solid #7d9ff3; border-radius: 5px;" required />
-
-            <button type="submit" class="btn">Calculate</button>
-        </form>
-
-        <p class="msg" th:if="${message}" th:text="${message}"></p>
-        <p class="err" th:if="${error}" th:text="${error}"></p>
-    </div>
 
     <p>
         <a class="btn" th:href="@{/toys}">Continue Shopping</a>

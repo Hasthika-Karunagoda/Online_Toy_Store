@@ -2,10 +2,10 @@
     <section class="cart-items">
         <h2>Cart Items</h2>
 
-        <!-- FIX: Check if the list inside the cart object is empty -->
+
         <p th:if="${cart == null or cart.cartItemList == null or #lists.isEmpty(cart.cartItemList)}">Your cart is empty.</p>
 
-        <!-- FIX: Only render table if the cart contains items -->
+
         <table th:unless="${cart == null or cart.cartItemList == null or #lists.isEmpty(cart.cartItemList)}">
             <thead>
             <tr>
@@ -17,7 +17,6 @@
             </tr>
             </thead>
             <tbody>
-            <!-- FIX: Loop over cart.cartItemList instead of the missing cartItems variable -->
             <tr th:each="item : ${cart.cartItemList}">
                 <td>
                     <span th:text="${item.toyName}">Toy name</span>

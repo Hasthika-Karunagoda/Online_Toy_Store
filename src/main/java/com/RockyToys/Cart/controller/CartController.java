@@ -1,16 +1,12 @@
 package com.RockyToys.Cart.controller;
 
-import com.RockyToys.Cart.dto.DiscountDTO;
 import com.RockyToys.Cart.model.Cart;
 import com.RockyToys.Cart.service.CartService;
 import com.RockyToys.User.model.User;
 import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -58,7 +54,6 @@ public class CartController {
             cart.recalculateTotals();
 
             model.addAttribute("cart", cart);
-            model.addAttribute("discountDTO", new DiscountDTO());
 
             return "carts";
 
@@ -66,27 +61,6 @@ public class CartController {
             redirect.addFlashAttribute("error", ex.getMessage());
             return "redirect:/toys";
         }
-    }
-
-    @PostMapping("/cart/discount")
-    public String calculateDiscount(@Valid @ModelAttribute DiscountDTO dto, BindingResult result,
-                                    HttpSession session, RedirectAttributes redirect) {
-        if (session.getAttribute("loggedInUser") == null) return "redirect:/users/login";
-        if (result.hasErrors()) {
-            redirect.addFlashAttribute("error", result.getFieldError() == null ? "Invalid discount." : result.getFieldError().getDefaultMessage());
-            return "redirect:/carts";
-        }
-        try {
-            Object cartId = session.getAttribute("cartId");
-            if (!(cartId instanceof String id) || id.isBlank()) return "redirect:/cart";
-            Cart cart = cartService.getCartById(id);
-            cartService.calculateDiscount(cart.getSubTotal(), dto.getDiscountPercentage());
-            session.setAttribute("cartDiscountPercentage", dto.getDiscountPercentage());
-            redirect.addFlashAttribute("message", "Discount calculated.");
-        } catch (RuntimeException ex) {
-            redirect.addFlashAttribute("error", ex.getMessage());
-        }
-        return "redirect:/carts";
     }
 
     @PostMapping("/admin/carts/delete/{id}")
