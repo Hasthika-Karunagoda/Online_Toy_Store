@@ -11,6 +11,8 @@ public final class FileFormat {
  public static String unesc(String s){
   StringBuilder b=new StringBuilder();boolean e=false;for(char c:s.toCharArray()){if(e){b.append(c=='n'?'\n':c=='p'?'|':c);e=false;}else if(c=='\\')e=true;else b.append(c);}if(e)b.append('\\');return b.toString();
  }
+
+ //splitting files
  public static String[] split(String s){List<String> a=new ArrayList<>();StringBuilder b=new StringBuilder();
   boolean e=false;
   for(char c:s.toCharArray()){if(e){b.append('\\').append(c);

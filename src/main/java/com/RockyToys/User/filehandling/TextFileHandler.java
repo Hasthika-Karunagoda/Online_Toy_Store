@@ -31,6 +31,7 @@ public class TextFileHandler {
    throw new IllegalStateException("Cannot read data file",e);
   }
  }
+
  public synchronized void rewriteAll(String file,List<String> lines){
   Path p=Paths.get(file);
   try{Files.createDirectories(p.getParent());Files.write(p,lines,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING);
