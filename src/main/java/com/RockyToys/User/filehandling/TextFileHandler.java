@@ -36,6 +36,7 @@ public class TextFileHandler {
   Path p=Paths.get(file);
   try{Files.createDirectories(p.getParent());Files.write(p,lines,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING);
   }
+
   catch(IOException e){
    throw new IllegalStateException("Cannot save data file",e);
   }
